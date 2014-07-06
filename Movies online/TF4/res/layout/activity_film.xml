@@ -82,7 +82,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:text="Transformers 4: Age of Extinction has been privated by Google, It's updating..."
+            android:text="Transformers 4: Age of Extinction has been privated by Google, It's updating...Share with friends !"
             android:textColor="@color/White" />
 
         <ImageView

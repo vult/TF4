@@ -5,15 +5,25 @@
     android:background="#01568d"
     android:padding="5dp" >
 
-    <TextView
-        android:id="@+id/header_tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <!-- <TextView -->
+    <!-- android:id="@+id/header_tv_title" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_centerInParent="true" -->
+    <!-- android:layout_marginRight="20dp" -->
+    <!-- android:gravity="center" -->
+    <!-- android:textAppearance="?android:attr/textAppearanceMedium" -->
+    <!-- android:textColor="@color/White" /> -->
+
+    <ImageView
+        android:id="@+id/bt_new"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
         android:layout_centerInParent="true"
         android:layout_marginRight="20dp"
+        android:background="@drawable/ic_new"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/White" />
+        android:onClick="onClickNew" />
 
     <LinearLayout
         android:layout_width="50dp"
@@ -54,9 +64,9 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
         android:background="@drawable/button_forcus_browser"
+        android:onClick="onClickRateApp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:onClick="onClickRateApp"
         android:src="@drawable/ic_rate"
         android:visibility="visible" />
 

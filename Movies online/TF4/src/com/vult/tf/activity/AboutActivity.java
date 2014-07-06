@@ -1,4 +1,4 @@
-package com.vult.TF4.activity;
+package com.vult.tf.activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -15,9 +15,9 @@ import android.widget.Toast;
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
 import com.vult.TF4.R;
-import com.vult.TF4.customview.SlidingMenuCustom;
-import com.vult.TF4.listener.MenuSlidingClickListener;
-import com.vult.TF4.utils.Utils;
+import com.vult.tf.customview.SlidingMenuCustom;
+import com.vult.tf.listener.MenuSlidingClickListener;
+import com.vult.tf.utils.Utils;
 
 public class AboutActivity extends BaseActivity implements
 		MenuSlidingClickListener {
@@ -201,6 +201,25 @@ public class AboutActivity extends BaseActivity implements
 			startActivity(new Intent(
 					Intent.ACTION_VIEW,
 					Uri.parse("http://play.google.com/store/apps/details?id=com.vult.TF4")));
+		}
+	}
+	
+	
+	public void onClickNew(View v) {
+		Uri uri = Uri.parse("market://details?id=com.vult.rio2");
+		Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+		try {
+			if (Utils.isNetworkConnected(this)) {
+				startActivity(goToMarket);
+			} else {
+				Toast.makeText(AboutActivity.this,
+						"Can not connect to network, please check again.",
+						Toast.LENGTH_SHORT).show();
+			}
+		} catch (Exception e) {
+			startActivity(new Intent(
+					Intent.ACTION_VIEW,
+					Uri.parse("http://play.google.com/store/apps/details?id=com.vult.rio2")));
 		}
 	}
 }

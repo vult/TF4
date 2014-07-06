@@ -1,4 +1,4 @@
-package com.vult.TF4.customview;
+package com.vult.tf.customview;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.vult.TF4.R;
-import com.vult.TF4.listener.MenuSlidingClickListener;
+import com.vult.tf.listener.MenuSlidingClickListener;
 
 /**
  * @author Hung Hoang This class init Sliding Menu

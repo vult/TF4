@@ -1,4 +1,4 @@
-package com.vult.TF4.activity;
+package com.vult.tf.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

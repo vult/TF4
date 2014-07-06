@@ -1,4 +1,4 @@
-package com.vult.TF4.activity;
+package com.vult.tf.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
 import com.vult.TF4.R;
-import com.vult.TF4.utils.Utils;
+import com.vult.tf.utils.Utils;
 
 public class SplashActivity extends Activity {
 	private final int STOPSPLASH = 0;
