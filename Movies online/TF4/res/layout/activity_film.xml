@@ -82,15 +82,15 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:text="Transformers 4: Age of Extinction has been privated by Google, It's updating...Share with friends !"
+            android:text="Transformers 4: Age of Extinction has been privated by Google, It&apos;s updating...Share with friends !"
             android:textColor="@color/White" />
 
         <ImageView
             android:id="@+id/bt_close"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginRight="10dp"
             android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
             android:background="@drawable/ic_close" />
     </LinearLayout>
 
@@ -99,6 +99,13 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="3dp" />
+        android:layout_marginTop="3dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:id="@+id/banner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </RelativeLayout>
 
 </LinearLayout>

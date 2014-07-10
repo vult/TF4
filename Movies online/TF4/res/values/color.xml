@@ -10,5 +10,6 @@
     <color name="color_bt">#f09037</color>
     <color name="color_divider_listview">#F6D3C5</color>
     <color name="bg_color">#D8E7EF</color>
+       <color name="bg">#2e2e2e</color>
 
 </resources>

@@ -4,7 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:background="#2e2e2e"
+    android:background="#2e2e2e"
     android:orientation="vertical" >
 
     <include
@@ -23,6 +23,13 @@
         android:id="@+id/activity_about_webview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:id="@+id/banner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </RelativeLayout>
 
 </LinearLayout>

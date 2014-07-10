@@ -47,6 +47,14 @@
         android:id="@+id/activity_youtube_playerview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:id="@+id/banner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         >
+    </RelativeLayout>
 
 </LinearLayout>

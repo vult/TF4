@@ -5,10 +5,13 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.widget.RelativeLayout.LayoutParams;
 
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
@@ -17,6 +20,16 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.smaato.soma.AdDimension;
+import com.smaato.soma.AdDownloaderInterface;
+import com.smaato.soma.AdListenerInterface;
+import com.smaato.soma.AdType;
+import com.smaato.soma.BannerStateListener;
+import com.smaato.soma.BannerView;
+import com.smaato.soma.BaseView;
+import com.smaato.soma.ReceivedBannerInterface;
+import com.smaato.soma.bannerutilities.constant.BannerStatus;
+import com.smaato.soma.exception.ClosingLandingPageFailed;
 import com.vult.TF4.R;
 import com.vult.tf.customview.SlidingMenuCustom;
 import com.vult.tf.listener.MenuSlidingClickListener;
@@ -37,6 +50,8 @@ public class TrailerActivity extends YouTubeBaseActivity implements
 	public static final String API_KEY = "AIzaSyAZQIG9IW7-jL86LtIeBtol-1dYc7K-JPI";
 	public static String VIDEO_ID = "LoP64q7wB-E";
 	AdView adView;
+	private BannerView mBanner;
+	private RelativeLayout myRelativeLayout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +66,66 @@ public class TrailerActivity extends YouTubeBaseActivity implements
 					"Can not connect to network, please check again.",
 					Toast.LENGTH_SHORT).show();
 		}
+		
+		//=========Add smaato Ads============
+				mBanner = new BannerView(this);
+				myRelativeLayout = (RelativeLayout) findViewById(R.id.banner);
+				myRelativeLayout.addView(mBanner, new LayoutParams(
+						LayoutParams.MATCH_PARENT, 50));
+				mBanner.getAdSettings().setPublisherId(923880529);
+				mBanner.getAdSettings().setAdspaceId(65837995);
+				mBanner.asyncLoadNewBanner();
+				mBanner.setLocationUpdateEnabled(true);
+				mBanner.setBackgroundResource(R.color.bg);
+				
+
+				mBanner.addAdListener(new AdListenerInterface() {
+					@Override
+					public void onReceiveAd(AdDownloaderInterface arg0,
+							ReceivedBannerInterface banner) {
+						if (banner.getStatus() == BannerStatus.ERROR) {
+							Log.w("ERR: " + banner.getErrorCode(),
+									"" + banner.getErrorMessage());
+							myRelativeLayout.setVisibility(View.GONE);
+						} else {
+							Log.d("Success","Banner download succeeded");
+							myRelativeLayout.setVisibility(View.VISIBLE);
+							// Banner download succeeded
+						}
+					}
+				});
+
+				mBanner.setBannerStateListener(new BannerStateListener() {
+
+					@Override
+					public void onWillCloseLandingPage(BaseView arg0)
+							throws ClosingLandingPageFailed {
+						Log.d("onWillCloseLandingPage","onWillCloseLandingPage");
+
+					}
+
+					@Override
+					public void onWillOpenLandingPage(BaseView arg0) {
+						Log.d("onWillOpenLandingPage","onWillOpenLandingPage");
+
+					}
+				});
+
+				mBanner.getAdSettings().setAdType(AdType.RICHMEDIA);
+				mBanner.getAdSettings().setAdDimension(AdDimension.DEFAULT);
+				mBanner.setAutoReloadEnabled(true);
+	}
+	
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		mBanner.setBackgroundResource(R.color.bg);
+		mBanner.asyncLoadNewBanner();
+		mBanner.setLocationUpdateEnabled(true);
+		mBanner.setAutoReloadFrequency(1);
+		mBanner.getAdSettings().setAdType(AdType.RICHMEDIA);
+		mBanner.getAdSettings().setAdDimension(AdDimension.DEFAULT);
 	}
 
 	public void onClick_Menu(View view) {
